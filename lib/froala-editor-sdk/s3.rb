@@ -46,7 +46,7 @@ module FroalaEditorSDK
     # +options+:: Configuration params that are needed to set the policy
     def self.policy_data (options = nil)
       {
-          expiration: 10.hours.from_now.utc.iso8601,
+	  expiration: options[:expiry_hour].hours.from_now.utc.iso8601,
           conditions: [
               ["starts-with", "$key", options[:keyStart]],       # Start key/folder
               ["starts-with", "$Content-type", ""],         # Content type
